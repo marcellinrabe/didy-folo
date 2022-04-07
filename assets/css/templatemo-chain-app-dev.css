@@ -1868,6 +1868,10 @@ blockquote em{
   padding-top: 8rem !important;
 }
 
+div[id*="fanazavana-didy"]{
+  padding: 30px 50px 30px 10px !important;
+}
+
 /* 
 ---------------------------------------------
 responsive

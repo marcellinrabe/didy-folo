@@ -63,6 +63,7 @@
 	z-index: 1101;
 	outline: none;
 	display: none;
+	width: 90vw !important;
 }
 
 #fancybox-outer {
@@ -73,7 +74,7 @@
 }
 
 #fancybox-content {
-	width: 0;
+	width: 90vw !important;
 	height: 0;
 	padding: 0;
 	outline: none;
