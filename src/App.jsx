@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Card from "./Card";
+import Navbar from "./Navbar";
+import WaypointProvider from "./providers/WaypointProvider";
 
-function App() {
-  const [count, setCount] = useState(0)
+import { commandments } from "./data";
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+export default function App() {
+    return (
+        <WaypointProvider>
+            <div className="w-screen h-screen overflow-hidden flex">
+                <div className="flex-auto w-1/4 h-full p-4">
+                    <Navbar />
+                </div>
+                <div className="flex-auto w-3/4 h-full overflow-y-auto">
+                    <div className="flex w-full justify-center">
+                        <div className="max-w-2xl mx-8">
+                            {commandments.map(
+                                ({ _id, textId, commandment, desc }) => (
+                                    <div className="mb-8" key={_id}>
+                                        <Card
+                                            key={_id}
+                                            textId={textId}
+                                            commandment={commandment}
+                                            desc={desc}
+                                        />
+                                    </div>
+                                )
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </WaypointProvider>
+    );
 }
-
-export default App
